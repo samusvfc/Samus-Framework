@@ -1,0 +1,17 @@
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#select-estado").change(function() {
+            $.get('ajax/carregarCidades/' + $(this).val(), {}, function(data) {
+                $("#select-cidade").html(data);
+                $("#select-cidade").focus();
+            });
+        })
+    });
+</script>
+<select name="estado" id="select-estado">
+${html_options options=$estadosOptions selected=$this->estadoSelecionado}
+</select>
+
+<select name="cidade" id="select-cidade">
+${html_options options=$cidadesOptions}
+</select>

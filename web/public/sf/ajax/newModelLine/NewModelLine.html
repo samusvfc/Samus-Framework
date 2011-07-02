@@ -1,0 +1,17 @@
+<tr id="linha-${$lineNum}">
+    <td>
+        <input type="text" name="nome[]" value="" style="width: 99%" id="name-${$lineNum}" />
+    </td>
+    <td>
+        <input type="text" name="phpType[]" value="" style="width: 99%" />
+    </td>
+    <td>
+        <input type="text" name="databaseType[]" value="" style="width: 99%" />
+    </td>
+    <td>
+        <input type="text" name="databaseExtra[]" value="" style="width: 99%" />
+    </td>
+    <td style="text-align: center" id="line-btn-${$lineNum}">
+        <button type="button" onclick="addLine('${$lineNum}' , this)">Add</button>
+    </td>
+</tr>

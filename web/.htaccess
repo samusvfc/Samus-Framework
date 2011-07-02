@@ -1,0 +1,6 @@
+RewriteEngine On
+RewriteCond %{SCRIPT_FILENAME} !-f
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteRule ^(.*) index.php?__cod=$1&httpHost=%{HTTP_HOST}&var=$2
+AddDefaultCharset iso-8859-1
+ServerSignature Off

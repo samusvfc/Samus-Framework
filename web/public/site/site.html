@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>${if $s->title}${$s->title}${/if}</title>
+        ${$s->renderHead()}
+
+        <meta name="description" content=""/>
+        <meta name="keywords" content=""/>
+        <meta name="author" content=""/>
+
+        <!--
+	FAVICON
+              <link rel="shortcut icon" href="" type="image/x-icon"/> 
+        -->
+    </head>
+    <body>
+        <div id="root">
+            <div id="main">
+                <div id="header">
+
+                </div>
+            </div>
+
+            <div id="content">
+                <div id="content-render" >
+                    ${$s->renderBody()}
+                    ${include file="sf/body.html"}
+                    ${$s->renderFooter()}
+                </div>
+            </div>
+
+            <div class="clear"></div>
+
+            <div id="footer">
+                <div id="footer-internal">
+
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </body>
+</html>

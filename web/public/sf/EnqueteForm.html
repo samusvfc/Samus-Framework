@@ -1,0 +1,39 @@
+<div class="enquete-form">
+
+    ${ foreach from=$enquetes item=enq key=key }
+
+    <div class="enquete-pergunta">
+    ${ $enq.pergunta }
+    </div>
+
+
+    <form method="post" action="processa_enquete" >
+        <input type="hidden" name="id" value="${ $enq.id }">
+
+        ${ foreach from=$enq.respostas item=res key=key }
+
+        ${ if $res->resposta }
+
+        <input ${ if $key==0 } checked="checked" ${ /if } type="radio" value="${ $res->id }" name="resposta">
+            ${ $res->resposta }
+
+            <br />
+
+        ${ /if }
+
+        ${ /foreach }
+
+        <br />
+
+        <div class="clear"></div>
+        <br />
+
+        <input title="Confirme sua resposta e veja o resultado" type="submit" name="action" value="Confirmar">
+        <a href="processa_enquete-${ $enq.id }">Resultado Parcial</a>
+
+    </form>
+
+
+    ${ /foreach }
+
+</div>

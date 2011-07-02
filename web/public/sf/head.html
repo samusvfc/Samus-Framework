@@ -1,0 +1,12 @@
+${if $this->isAsync()}
+<script type="text/javascript">  
+    ${if $s->title}
+        document.title='${$s->title}';
+    ${/if}
+</script>
+<script type="text/javascript" src="${$samus.const.WEB_URL}scripts/samus/sf.async.js"></script>
+${/if}
+<script type="text/javascript">WEB_URL = '${$samus.const.WEB_URL}';</script>
+${if $s->getHeadFile()}
+${include file=$s->getHeadFile()}
+${/if}

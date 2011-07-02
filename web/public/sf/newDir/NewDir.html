@@ -1,0 +1,149 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+    <head>
+        <title>Samus Framework - New Directory</title>
+        ${$s->renderHead()}
+        ${include file="sf/head.html"}
+        <link rel="shortcut icon" href="http://framework.samus.com.br/fav.ico" type="image/x-icon"/> 
+        <style type="text/css">
+            body { font-size: 12px; font-family: Arial;margin: auto; text-align: center; color: #333; background-color: #EBEBEB;  margin-bottom: 20px; }
+            fieldset { background-color: #FCFCFC; border-width: 1px; padding: 8px; text-align: left; margin: auto; margin-top: 10px; border-color: #A7A7A7; }
+            fieldset legend { color: #333; padding: 2px 4px; border: 1px solid #C3C3C3; font-weight: bold; background-color: #fff; border-bottom: 1px solid #7E7E7E; border-right: 1px solid #7E7E7E; text-transform: uppercase; }
+            fieldset input { width: 95%; }
+            label { display: block; margin-top: 6px; }
+            fieldset#config-root { width: 40%; }
+            input[type='text'] , select { padding: 5px; }
+            input[type='text']:focus , textarea:focus { color:#338000; outline: 1px solid greenyellow }
+            .success { background-color: #007C26; color: #fff; text-align: left; padding: 10px; font-size: 10px; line-height: 15px; }
+            .error { background-color: #FE850C; color: #fff; padding: 3px 8px; text-align: center;  line-height: 15px; font-size: 10px; }
+            .error hr { border: none; border-bottom: 1px solid #990B0B; height: 1px;  }
+            #config-root { border-right: 2px solid #696C74; border-bottom: 2px solid #696C74; }
+            .check-item { font-size: 12px; }
+            .check-item input{ width: 15px;}
+            .obs { color:  gray; font-size: 10px;}
+            .left { float: left; }
+        </style>
+        
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $("#input-directory").focus();
+
+            });
+        </script>
+
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    </head>
+    <body>
+        <div>
+
+            ${include file="sf/_includes/_sf_menu.html"}
+
+            <form method="post" action="newDir/create">
+                <fieldset id="config-root">
+                    <legend>CREATE NEW SAMUS DIRECTORY</legend>
+
+                    ${if $sucesso}
+                    <div class="success">
+                        ${$msg|nl2br}
+                    </div>
+                    <br />
+
+                    ${/if}
+
+                    ${if $error}
+                    <div class="error">
+                        ${$errorMsg|nl2br}
+                    </div>
+                    <br />
+                    ${/if}
+
+             ${if $url}
+                    URL:
+                    <a href="${$url}" style="font-size: 13px;">
+                        ${$url}
+                    </a>
+                    ${/if}
+
+
+                    <label>
+                        <span style="width: 110px; display: inline-block">
+                            Base Dir
+                        </span>
+                        <span>
+                            New directory name
+                        </span>
+                    </label>
+                    <select name="directory" style="width: 100px;" onclick="" id="input-directory">
+                        ${html_options options=$dirOptions }
+                    </select>
+                    /
+                    <input type="text" name="name" id="input-name" style="width: 78%" />
+                    <br />
+                    <span class="obs">Ex.: site/aboutUs </span>
+
+                    <br />
+                    <br />
+
+                    <div class="check-item">
+                        <label>
+                            <input type="checkbox" name="createDefaultRenderFile" value="true" checked="checked" />
+                            Create default render file?
+                        </label>
+                    </div>
+
+                    <div class="check-item">
+                        <label>
+                            <input type="checkbox" name="createFilter" value="true" checked="checked" />
+                            Create Directory Filter (_Filter.php)?
+                        </label>
+                    </div>
+
+                    <div class="check-item">
+                        <label>
+                            <input type="checkbox" name="createIndex" value="true" checked="checked" />
+                            Create Index Controller?
+                        </label>
+                    </div>
+
+                    <div class="check-item">
+                        <label>
+                            <input type="checkbox" name="createCssDir" value="true" checked="checked" />
+                            Create CSS directory (_css)?
+                        </label>
+                    </div>
+
+                    <div class="check-item">
+                        <label>
+                            <input type="checkbox" name="createJsDir" value="true" checked="checked" />
+                            Create JS directory (/_js)?
+                        </label>
+                    </div>
+
+                    <div class="check-item">
+                        <label>
+                            <input type="checkbox" name="createIncludeDir" value="true" checked="checked" />
+                            Create Includes directory (/_includes)?
+                        </label>
+                    </div>
+
+
+                    <br />
+                    <br />
+
+                    <div style="text-align: right">
+
+                        <a href="newDir" class="left">
+                            Reset
+                        </a>
+
+                        <input type="submit" value="Confirm" name="action" style="width: 100px;"  />
+                    </div>
+
+
+
+                </fieldset>
+            </form>
+
+        </div>
+    </body>
+</html>
